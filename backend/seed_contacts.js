@@ -7,25 +7,25 @@ dotenv.config();
 
 const contacts = [
   {
-    firstName: "Sarah",
-    lastName: "Birch",
-    email: "sarahb@gmail.com",
+    firstName: "Ohok",
+    lastName: "Janefrances",
+    email: "janefrances@gmail.com",
     favoriteColor: "Yellow",
-    birthday: "12/12/20"
+    birthday: "December 10th"
   },
   {
     firstName: "Armando",
     lastName: "Perez",
-    email: "aperez@hotmail.com",
+    email: "aperez@gmail.com",
     favoriteColor: "Blue",
-    birthday: "06/06/20"
+    birthday: "March 3rd"
   },
   {
     firstName: "Praise",
     lastName: "Enato",
-    email: "praise@gmail.com",
+    email: "praisenato@gmail.com",
     favoriteColor: "Green",
-    birthday: "01/01/20"
+    birthday: "November 1st"
   }
 ];
 
