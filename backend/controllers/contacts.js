@@ -1,6 +1,7 @@
 const Contact = require('../models/contact');
 const { ObjectId } = require('mongodb');
 
+// Retrieves all contacts from MongoDB
 const getAllContacts = async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -10,6 +11,7 @@ const getAllContacts = async (req, res) => {
   }
 };
 
+// Retrieves a single contact from MongoDB based on the contact ID
 const getContactById = async (req, res) => {
   try {
     if (!ObjectId.isValid(req.params.id)) {
