@@ -10,11 +10,17 @@ const app = express();
 const port = 8080;
 
 app.use(cors());
+app.use(express.json());
 
 // Connect to Database
 connectDB();
 
 app.use('/contacts', contactsRoutes);
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger_output.json');
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/', (req, res) => {
     res.send("Hello World");

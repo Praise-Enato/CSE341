@@ -13,4 +13,13 @@ router.get('/', (req, res, next) => {
 // GET request that retrieves and returns a single contact from MongoDB based on the contact ID
 router.get('/:id', contactsController.getContactById);
 
+// POST request to create a new contact
+router.post('/', contactsController.createContact);
+
+// PUT request to update a contact
+router.put('/:id', contactsController.updateContact);
+
+// DELETE request to delete a contact
+router.delete('/:id', contactsController.deleteContact);
+
 module.exports = router;
