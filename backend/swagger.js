@@ -7,6 +7,15 @@ const doc = {
   },
   host: 'localhost:8080',
   schemes: ['http'],
+  definitions: {
+    Contact: {
+      firstName: "John",
+      lastName: "Doe",
+      email: "jdoe@example.com",
+      favoriteColor: "Red",
+      birthday: "01/01/2000"
+    }
+  }
 };
 
 const outputFile = './swagger_output.json';
