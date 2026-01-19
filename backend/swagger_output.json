@@ -17,6 +17,29 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/contacts/": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get all contacts",
+        "description": "Retrieves a list of all contacts",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Contact"
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "500": {
             "description": "Internal Server Error"
@@ -24,30 +47,19 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Create a new contact",
+        "description": "Creates a new contact",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Contact data",
+            "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Contact"
             }
           }
         ],
@@ -61,9 +73,13 @@
         }
       }
     },
-    "/{id}": {
+    "/contacts/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get contact by ID",
+        "description": "Retrieves a single contact by ID",
         "parameters": [
           {
             "name": "id",
@@ -74,7 +90,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
           },
           "400": {
             "description": "Bad Request"
@@ -88,7 +107,11 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Update a contact",
+        "description": "Updates an existing contact",
         "parameters": [
           {
             "name": "id",
@@ -99,25 +122,10 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Contact data",
+            "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Contact"
             }
           }
         ],
@@ -137,7 +145,11 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Delete a contact",
+        "description": "Deletes a contact by ID",
         "parameters": [
           {
             "name": "id",
@@ -159,6 +171,33 @@
           "500": {
             "description": "Internal Server Error"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "John"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "email": {
+          "type": "string",
+          "example": "jdoe@example.com"
+        },
+        "favoriteColor": {
+          "type": "string",
+          "example": "Red"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "01/01/2000"
         }
       }
     }
