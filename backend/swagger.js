@@ -5,9 +5,9 @@ const doc = {
     title: 'Contacts API',
     description: 'API for managing contacts',
   },
-  host: 'localhost:8080',
-  schemes: ['http'],
+  schemes: ['http', 'https'],
   definitions: {
+
     Contact: {
       firstName: "John",
       lastName: "Doe",

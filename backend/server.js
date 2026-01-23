@@ -20,6 +20,12 @@ app.use('/contacts', contactsRoutes);
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger_output.json');
 
+// Fix for Render deployment: remove host and schemes to allow Swagger UI to infer them
+if (process.env.NODE_ENV === 'production' || true) { // Always apply to be safe or just apply
+  delete swaggerDocument.host;
+  delete swaggerDocument.schemes;
+}
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/', (req, res) => {
