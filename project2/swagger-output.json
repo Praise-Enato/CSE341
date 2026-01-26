@@ -1,0 +1,313 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Pet Adoption Agency API",
+    "description": "API for managing pets and adoption applications",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/pets/": {
+      "get": {
+        "tags": [
+          "Pets"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Pets"
+        ],
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/pets/{id}": {
+      "get": {
+        "tags": [
+          "Pets"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Pets"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pets"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/applications/": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Applications"
+        ],
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/applications/{id}": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Applications"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Applications"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Pet": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Buddy"
+        },
+        "species": {
+          "type": "string",
+          "example": "Dog"
+        },
+        "breed": {
+          "type": "string",
+          "example": "Golden Retriever"
+        },
+        "age": {
+          "type": "number",
+          "example": 3
+        },
+        "gender": {
+          "type": "string",
+          "example": "Male"
+        },
+        "color": {
+          "type": "string",
+          "example": "Golden"
+        },
+        "adoptionStatus": {
+          "type": "string",
+          "example": "Available"
+        },
+        "description": {
+          "type": "string",
+          "example": "Friendly and playful."
+        },
+        "arrivalDate": {
+          "type": "string",
+          "example": "2023-10-01"
+        },
+        "isVaccinated": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "Application": {
+      "type": "object",
+      "properties": {
+        "applicantName": {
+          "type": "string",
+          "example": "Jane Doe"
+        },
+        "email": {
+          "type": "string",
+          "example": "jane@example.com"
+        },
+        "petId": {
+          "type": "string",
+          "example": "650c... (ObjectId)"
+        },
+        "status": {
+          "type": "string",
+          "example": "New"
+        },
+        "dateApplied": {
+          "type": "string",
+          "example": "2023-10-05"
+        }
+      }
+    }
+  }
+}
