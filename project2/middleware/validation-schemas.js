@@ -16,7 +16,9 @@ const petSchema = Joi.object({
 const applicationSchema = Joi.object({
   applicantName: Joi.string().required(),
   email: Joi.string().email().required(),
-  petId: Joi.string().required(),
+  petId: Joi.string().regex(/^[0-9a-fA-F]{24}$/).required().messages({
+    'string.pattern.base': 'petId must be a valid 24-character hex string (ObjectId)'
+  }),
   status: Joi.string().valid('New', 'Reviewed', 'Approved', 'Rejected').default('New'),
   dateApplied: Joi.date().default(Date.now)
 });

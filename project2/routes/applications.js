@@ -4,10 +4,41 @@ const applicationsController = require('../controllers/applications');
 const validator = require('../middleware/validate');
 const { applicationSchema } = require('../middleware/validation-schemas');
 
-router.get('/', applicationsController.getAllApplications);
-router.get('/:id', applicationsController.getApplicationById);
-router.post('/', validator(applicationSchema), applicationsController.createApplication);
-router.put('/:id', validator(applicationSchema), applicationsController.updateApplication);
-router.delete('/:id', applicationsController.deleteApplication);
+router.get('/', (req, res, next) => {
+  // #swagger.tags = ['Applications']
+  applicationsController.getAllApplications(req, res, next);
+});
+
+router.get('/:id', (req, res, next) => {
+  // #swagger.tags = ['Applications']
+  applicationsController.getApplicationById(req, res, next);
+});
+
+router.post('/', validator(applicationSchema), (req, res, next) => {
+  // #swagger.tags = ['Applications']
+  /* #swagger.parameters['body'] = {
+        in: 'body',
+        description: 'Application data',
+        required: true,
+        schema: { $ref: '#/definitions/Application' }
+  } */
+  applicationsController.createApplication(req, res, next);
+});
+
+router.put('/:id', validator(applicationSchema), (req, res, next) => {
+  // #swagger.tags = ['Applications']
+  /* #swagger.parameters['body'] = {
+        in: 'body',
+        description: 'Application data',
+        required: true,
+        schema: { $ref: '#/definitions/Application' }
+  } */
+  applicationsController.updateApplication(req, res, next);
+});
+
+router.delete('/:id', (req, res, next) => {
+  // #swagger.tags = ['Applications']
+  applicationsController.deleteApplication(req, res, next);
+});
 
 module.exports = router;

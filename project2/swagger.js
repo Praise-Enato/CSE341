@@ -23,7 +23,7 @@ const doc = {
     Application: {
       applicantName: "Jane Doe",
       email: "jane@example.com",
-      petId: "650c... (ObjectId)",
+      petId: "650c1f1e1c9d440000a1b1c1", 
       status: "New",
       dateApplied: "2023-10-05"
     }

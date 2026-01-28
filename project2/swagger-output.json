@@ -31,6 +31,17 @@
           "Pets"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Pet data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -81,6 +92,15 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Pet data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            }
           }
         ],
         "responses": {
@@ -144,6 +164,17 @@
           "Applications"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Application data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Application"
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -194,6 +225,15 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Application data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Application"
+            }
           }
         ],
         "responses": {
@@ -297,7 +337,7 @@
         },
         "petId": {
           "type": "string",
-          "example": "650c... (ObjectId)"
+          "example": "650c1f1e1c9d440000a1b1c1"
         },
         "status": {
           "type": "string",
