@@ -3,6 +3,7 @@ const router = express.Router();
 const applicationsController = require('../controllers/applications');
 const validator = require('../middleware/validate');
 const { applicationSchema } = require('../middleware/validation-schemas');
+const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/', (req, res, next) => {
   // #swagger.tags = ['Applications']
@@ -14,7 +15,7 @@ router.get('/:id', (req, res, next) => {
   applicationsController.getApplicationById(req, res, next);
 });
 
-router.post('/', validator(applicationSchema), (req, res, next) => {
+router.post('/', isAuthenticated, validator(applicationSchema), (req, res, next) => {
   // #swagger.tags = ['Applications']
   /* #swagger.parameters['body'] = {
         in: 'body',
@@ -25,7 +26,7 @@ router.post('/', validator(applicationSchema), (req, res, next) => {
   applicationsController.createApplication(req, res, next);
 });
 
-router.put('/:id', validator(applicationSchema), (req, res, next) => {
+router.put('/:id', isAuthenticated, validator(applicationSchema), (req, res, next) => {
   // #swagger.tags = ['Applications']
   /* #swagger.parameters['body'] = {
         in: 'body',
@@ -36,7 +37,7 @@ router.put('/:id', validator(applicationSchema), (req, res, next) => {
   applicationsController.updateApplication(req, res, next);
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', isAuthenticated, (req, res, next) => {
   // #swagger.tags = ['Applications']
   applicationsController.deleteApplication(req, res, next);
 });
